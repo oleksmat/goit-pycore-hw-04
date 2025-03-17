@@ -1,9 +1,4 @@
 # import list of commands from commands package
-# every command is exported as a tuple:
-# (list_of_names>: list[str], number_of_parameters: int,
-# description: str, command_routine: CommandRoutine)
-#
-# CommandRoutine = (contacts: dict[str,str], *args: [str])
 from commands import commands
 
 def parse_input(user_input):
@@ -42,9 +37,20 @@ def main():
 
         if len(args) != args_num:
             print(f"Invalid number of arguments. Must be {args_num}. Check `help`")
+            continue
 
         # execute command with supplied arguments
-        command_function(state, *args)
+        result = command_function(state, *args)
+
+        if isinstance(result, str):
+            print(result)
+        else:
+            # result is (str, bool)
+            message, should_exit = result
+
+            print(message)
+            if should_exit:
+                break
 
 if __name__ == "__main__":
     main()

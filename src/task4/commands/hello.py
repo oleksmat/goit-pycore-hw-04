@@ -1,5 +1,5 @@
 def hello_command(_: any):
-    print('How can I help you?')
+    return 'How can I help you?'
 
 hello = (
     ['hello'],

@@ -1,11 +1,10 @@
 def update_command(state: dict[str, str], username, phone):
     if not (username in state):
-        print("Username is not yet assigned a phone")
-        return
+        return f"Contact for '{username}' does not exists"
 
     state[username] = phone
 
-    print(f"Changed {username} to {phone}")
+    return f"Changed contact for '{username}' to {phone}"
 
 update = (
     ['change', 'update'],

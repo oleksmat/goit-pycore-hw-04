@@ -1,9 +1,8 @@
 def view_command(state: dict[str, str], username):
     if not (username in state):
-        print(f"Contact for {username} does not exist")
-        return
+        return f"Contact for '{username}' does not exist"
 
-    print(f"Contact for {username} is {state[username]}")
+    return f"Contact for '{username}' is {state[username]}"
 
 view = (
     ['view', 'phone'],

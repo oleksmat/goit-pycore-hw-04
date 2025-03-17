@@ -1,5 +1,5 @@
 def close_command(_: any):
-    exit(0)
+    return 'Goodbye', True
 
 close = (
     ['close', 'exit'],

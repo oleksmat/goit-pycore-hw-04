@@ -1,11 +1,10 @@
 def delete_command(state: dict[str, str], username):
     if not (username in state):
-        print(f"Contact for {username} does not exist")
-        return
+        return f"Contact for '{username}' does not exist"
 
     del state[username]
 
-    print(f"Contact for {username} is deleted")
+    return f"Contact for '{username}' was deleted"
 
 delete = (
     ['delete'],

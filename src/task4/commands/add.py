@@ -1,11 +1,10 @@
-def add_command(state: dict[str, str], username, phone):
+def add_command(state: dict[str, str], username: str, phone: str) -> str:
     if username in state:
-        print(f"Contact for {username} already exists")
-        return
+        return f"Contact for '{username}' already exists"
 
     state[username] = phone
 
-    print(f"Contact for {username} is {phone}")
+    return f"Contact for '{username}' is now {phone}"
 
 add = (
     ['add'],

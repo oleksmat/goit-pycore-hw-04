@@ -1,9 +1,8 @@
 def list_command(state: dict[str, str]):
-    if len(dict):
-        print("No contacts yet")
+    if len(state) == 0:
+        return "No contacts yet"
 
-    for username in state.keys():
-        print(f" -- '{username}' - {state[username]}")
+    return '\n'.join([f" -- '{username}' - {state[username]}" for username in state.keys()])
 
 list = (
     ['list', 'all'],
