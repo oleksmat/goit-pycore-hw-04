@@ -1,6 +1,11 @@
+from re import match
+
 def add_command(state: dict[str, str], username: str, phone: str) -> str:
     if username in state:
         return f"Contact for '{username}' already exists"
+
+    if match('^\d{10}$', string=phone) is None:
+        return f"Invalid phone number"
 
     state[username] = phone
 

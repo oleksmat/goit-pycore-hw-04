@@ -1,6 +1,11 @@
+from re import match
+
 def update_command(state: dict[str, str], username, phone):
     if not (username in state):
         return f"Contact for '{username}' does not exists"
+
+    if match('^\d{10}$', string=phone) is None:
+        return f"Invalid phone number"
 
     state[username] = phone
 
